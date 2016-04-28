@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 case PLACE_PICKER_FLAG:
                     Place place = PlacePicker.getPlace(data, this);
                     myLocation.setText(place.getName() + ", " + place.getAddress()+ "\nID: " +place.getId());
-                    locList.append(locCount+": "+ place.getId()+"\n");
+                    locList.append("\n"+locCount+": "+ place.getId());
                     locCount++;
                     break;
             }

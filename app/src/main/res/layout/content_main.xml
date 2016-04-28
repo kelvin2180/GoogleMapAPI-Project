@@ -39,11 +39,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="Location List:"
         android:id="@+id/locList"
         android:layout_below="@+id/pickerBtn"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/myLocation"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
