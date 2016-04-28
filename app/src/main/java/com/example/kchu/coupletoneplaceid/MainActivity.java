@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
@@ -31,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private GoogleApiClient mGoogleApiClient;
     private static final int PLACE_PICKER_FLAG = 1;
     private AutoCompleteTextView myLocation;
-
+    private TextView locList;
+    private int locCount = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         builder = new PlacePicker.IntentBuilder();
         myLocation = (AutoCompleteTextView) findViewById(R.id.myLocation);
+        locList = (TextView) findViewById(R.id.locList);
 
         pickerBtn = (Button) findViewById(R.id.pickerBtn);
         pickerBtn.setOnClickListener(new View.OnClickListener()
@@ -87,7 +90,9 @@ public class MainActivity extends AppCompatActivity {
             switch (requestCode) {
                 case PLACE_PICKER_FLAG:
                     Place place = PlacePicker.getPlace(data, this);
-                    myLocation.setText(place.getName() + ", " + place.getAddress());
+                    myLocation.setText(place.getName() + ", " + place.getAddress()+ "\nID: " +place.getId());
+                    locList.append(locCount+": "+ place.getId()+"\n");
+                    locCount++;
                     break;
             }
         }
